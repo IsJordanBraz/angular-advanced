@@ -1,0 +1,41 @@
+<div id="widget">
+  <div class="widget-header">
+    <ng-content select="ciee=header"></ng-content>
+  </div>
+
+  <div class="widget-content">
+    <ng-content>
+      <p class="no-content">No content ...</p>
+    </ng-content>
+  </div>
+
+  <button (click)="hidden.set(!hidden())">Expand/Collapse</button>
+
+  @if (!hidden()) {
+  <div class="widget-content">
+    <ng-container
+      [ngTemplateOutlet]="footer()?.tpl || noContent"
+    ></ng-container>
+    <ng-template #noContent>
+      <p class="no-content">No content...</p>
+    </ng-template>
+  </div>
+  }
+  <!-- <div></div> -->
+  <!-- @if (!hidden()) {
+  <div class="widget-content">
+    <ng-container
+      [ngTemplateOutlet]="content()?.tpl || noContent"
+    ></ng-container>
+    <ng-template #noContent>
+      <p class="no-content">No content...</p>
+    </ng-template>
+  </div>
+  } -->
+
+  <!-- @if (!hidden()) {
+  <div class="widget-content">
+    <ng-content select="ciee=content"></ng-content>
+  </div>
+  } -->
+</div>

@@ -1,0 +1,39 @@
+#widget {
+    border: #eceff1 1px solid;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
+    margin-bottom: 10px;
+
+    .widget-header {
+        margin: 0 -10px 0 -10px;
+        padding: 0 15px 15px 15px;
+      }
+
+    .widget-title {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .widget-sub-title {
+        text-align: center;
+        font-size: 13px;
+      }
+
+      .widget-content {
+        padding: 30px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .no-content {
+        padding: 21px 10px;
+        border: #ccc dashed 1px;
+        border-radius: 5px;
+        width: 100%;
+        background-color: #fafafa;
+        font-size: 12px;
+        text-align: center;
+      }
+}
+

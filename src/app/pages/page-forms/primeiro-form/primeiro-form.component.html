@@ -1,0 +1,37 @@
+<h2>Reactive Forms Playground</h2>
+<form [formGroup]="form">
+  <div>
+    <label for="name">firstName</label>
+    <input
+      formControlName="firstName"
+      type="text"
+      id="name"
+      placeholder="Enter your name"
+    />
+    @if (form.controls.firstName; as firstName) {
+    <ng-container>
+      @if (firstName.dirty && firstName.hasError('required')) {
+      <div>Esse campo é obrigatorio</div>
+      } @if (firstName.dirty && firstName.hasError('minlength')) {
+      <div>
+        O nome precisa ter pelo menos
+        <strong>{{ firstName.getError("minlength")?.requiredLength }}.</strong>
+      </div>
+      }
+    </ng-container>
+    }
+
+    {{ form.get("firstName")?.valid }}
+  </div>
+
+  <div [ngClass]="showInvalidForm('lastName') ? 'form-invalid' : ''">
+    <input formControlName="lastName" type="text" />
+    {{ form.get("lastName")?.valid }}
+  </div>
+  <div [ngClass]="showInvalidForm('nickName') ? 'form-invalid' : ''">
+    <input formControlName="nickName" type="text" />
+    {{ form.get("nickName")?.valid }}
+  </div>
+
+  <button type="submit" [disabled]="!form.valid">submit</button>
+</form>

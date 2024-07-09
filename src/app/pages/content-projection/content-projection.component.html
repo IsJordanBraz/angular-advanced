@@ -1,0 +1,19 @@
+<div class="projections">
+  <!-- <app-widget>
+    <app-widget-content ngProjectAs="ciee=content" title="with content" />
+  </app-widget> -->
+
+  <app-widget>
+    <ng-container ngProjectAs="ciee=header">
+      <div ciee="header" class="widget-title">Weather Forecast</div>
+      <div class="widget-sub-title">Currently in Vienna</div>
+    </ng-container>
+    <div class="sky-condition">🐊</div>
+    <div class="temperature">21ºC</div>
+    <ng-template appWidgetFooter>
+      <app-widget-content title="with template" />
+    </ng-template>
+  </app-widget>
+
+  <app-weather> </app-weather>
+</div>

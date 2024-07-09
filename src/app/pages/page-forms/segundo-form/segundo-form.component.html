@@ -1,0 +1,41 @@
+<h2>Reactive Forms Playground</h2>
+<form [formGroup]="form" (ngSubmit)="(null)">
+  @for (control of custom1.controls | keyvalue; track $index) {
+  <div
+    [ngClass]="
+      (!form.get(control.key)?.valid && form.get(control.key)?.dirty) ||
+      (!form.get(control.key)?.valid && form.get(control.key)?.touched)
+        ? 'form-invalid'
+        : ''
+    "
+  >
+    <label [for]="control.key">{{ control.value.label }}</label>
+    <input
+      [attr.aria-required]="getIsRequired(control.key)"
+      [attr.aria-label]="control.value.label"
+      [attr.aria-disabled]="form.get(control.key)?.disabled"
+      [attr.aria-invalid]="!form.get(control.key)?.valid"
+      [attr.aria-describedby]="control.key + '-aria-describedby'"
+      [formControlName]="control.key"
+      [type]="control.value.type"
+      [id]="control.key"
+      [placeholder]="control.value.placeholder"
+    />
+    @if (form.get(control.key); as controlError) {
+    <ng-container>
+      @if (controlError.dirty && controlError.hasError('required')) {
+      <div>Esse campo é obrigatorio</div>
+      } @if (controlError.dirty && controlError.hasError('minlength')) {
+      <div role="alert" [id]="control.key + '-aria-describedby'">
+        O nome precisa ter pelo menos
+        {{ controlError.getError("minlength")?.requiredLength }}
+      </div>
+      }
+    </ng-container>
+    }
+    {{ form.get(control.key)?.valid }}
+  </div>
+  }
+
+  <button type="submit" [disabled]="!form.valid">submit</button>
+</form>

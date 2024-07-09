@@ -1,0 +1,27 @@
+{
+    "description": "The Test user form",
+    "controls": {
+        "firstName": {
+            "placeholder": "",
+            "controlType": "input",
+            "type": "text",
+            "label": "First Name",
+            "value": "",
+            "validators": {
+                "required": true,
+                "minLength": 2
+            }
+        },
+        "lastName": {
+            "placeholder": "",
+            "controlType": "input",
+            "type": "text",
+            "label": "Last Name",
+            "value": "",
+            "validators": {
+                "required": true,
+                "minLength": 4
+            }
+        }
+    }
+}

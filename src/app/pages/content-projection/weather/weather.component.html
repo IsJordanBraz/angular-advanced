@@ -1,0 +1,16 @@
+<div id="widget">
+  <div class="widget-header">
+    <ng-container #customContainer></ng-container>
+    <ng-template #defaultWidgetHeader>
+      <div ciee="header" class="widget-title">Weather Forecast</div>
+      <div class="widget-sub-title">Currently in Vienna</div>
+    </ng-template>
+  </div>
+
+  <div class="widget-content">
+    <div class="sky-condition">🐊</div>
+    <div class="temperature">21ºC</div>
+  </div>
+
+  <button (click)="hidden.set(!hidden())">Expand/Collapse</button>
+</div>
